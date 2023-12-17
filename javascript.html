@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <title>Rathore's Pizza</title>
+<script>
+    function orderUp() {
+        var fname;
+        var lname;
+        var name;
+        var message;
+        var size;
+        var toppings;
+        var numToppings;
+        fname = document.form1.firstname.value;
+        lname = document.form1.lastname.value;
+        name = fname + " " + lname;
+        document.form1.lastname.value=name;
+        message = "Your name is " + name;
+        size="large";
+        if(document.form1.pizzasize[0].checked) {
+            size="Small";
+        }
+        if(document.form1.pizzasize[1].checked) {
+            size="Medium";
+        }
+        if(document.form1.pizzasize[2].checked) {
+            size="Large";
+        }
+        message = message + " you selected pizza size of " + size;
+        numToppings = 0;
+        toppings = "You have chose the following toppings";
+        for(i=0; i<document.form1.length; i++) {
+            if(document.form1.elements[i].checked) {
+                if(document.form1.elements[i].name != "pizzasize") {
+                    if(numToppings==0){
+                        topppings = toppings + document.form1.elements[i];
+                    }
+                    else {
+                        topppings = toppings + ", " + document.form1.elements[i];
+                    }
+                    numToppings++;
+                }
+            }
+        }
+        message = message + " " + toppings;
+        alert(message);
+    }
+</script>
+    </head>
+
+    <body bgcolor="white">
+        <br><br>
+        <div align="center">
+        <h1>Rathore's Pizza</h1>
+        </div>
+        <br><br>
+
+        <!--form tag (textbox)-->
+        <form name="form1">
+            <div align="center">
+            First Name: <input type="textbox" name="firstname" maxlength="20" size="20">
+            <br>
+            Last Name: <input type="textbox" name="firstname" maxlength="20" size="20">
+            <br><br>
+            <!--selecting size-->
+            Pizza Size:
+            <input type="radio" name="pizzasize" value="small"> Small
+            <input type="radio" name="pizzasize" value="medium"> Medium
+            <input type="radio" name="pizzasize" value="large"> Large
+            <br><br>
+            <!--checkboxes toppings-->
+            Toppings:
+            <input type="checkbox" name="pizzasize" value="pepperoni">Pepperoni
+            <input type="checkbox" name="pizzasize" value="jal">Jalepenos
+            <input type="checkbox" name="pizzasize" value="onion">Onions
+            <input type="checkbox" name="pizzasize" value="excheese">Extra Cheese
+            <br><br>
+            State <select name="state">
+            <option value=" ">
+            <option value="NY">New York
+            <option value="MA">Massachusetts
+            <option value="VT">Vermont
+            </select>
+            <br><br>
+            <!--submit button with popup-->
+            <input type="button" value="Order" onclick="orderUp()">
+            </div>
+        </form>
+    </body>
+</html>

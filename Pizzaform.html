@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Rathore's Pizza
+</title>
+<!--Start of JavaScript-->
+<script>
+function orderUp() {
+  var fname;
+  var lname;
+  var name;
+  var message;
+  var size;
+  var Toppings;
+  var numberofToppings;
+  var ystate;
+  var num1;
+  var num2;
+  var ntotal;
+  fname = document.form1.firstname.value;
+  lname = document.form1.lastname.value;
+  name = fname + " " + lname;
+  document.form1.lastname.value=name;
+  message = "Your name is " + name;
+  size="large";
+  
+  if (document.form1.pizzasize[0].checked) {
+      size=document.form1.pizzasize[0].value;
+  }
+  if (document.form1.pizzasize[1].checked) {
+      size=document.form1.pizzasize[1].value;
+  }
+  if (document.form1.pizzasize[2].checked) {
+      size=document.form1.pizzasize[2].value;
+  }
+  message = message + " you select a Pizza Size of " + size;
+  numberofToppings = 0;
+  Toppings = "You have chose the following Toppings: ";
+  for(i= 0;i < document.form1.length;i++) {
+     if (document.form1.elements[i].checked) { 
+        if (document.form1.elements[i].name != "pizzasize") {
+            if (numberofToppings == 0) {
+           	 Toppings = Toppings + document.form1.elements[i].value;
+		        }
+		else {
+      Toppings = Toppings + ", " + document.form1.elements[i].value;
+		}        
+    numberofToppings++;
+        }	
+     	}
+  } 
+  message = message + " " + Toppings;
+  ystate = document.form1.state[document.form1.state.selectedIndex].value;
+  message = message + " You have selected the state of " + ystate;
+  alert(message);
+  num1 = eval(document.form1.number1.value);
+  num2 = eval(document.form1.number2.value);
+  ntotal = num1 + num2;
+  document.form1.total.value = ntotal;
+}
+</script>
+<!--End oF JavaScript-->
+</head>
+
+<body>
+<br><br>
+<div align="center">
+<h1>
+Rathore's Pizza
+</h1>
+</div>
+<br><br>
+<form name="form1">
+  <div align="center">
+    First Name <input type="textbox" name="firstname" maxlength="20">
+   <br>
+    Last Name <input type="textbox" name="lastname" maxlength="20">
+    <br><br>
+    Pizza Size
+   <input type="radio" name="pizzasize" value="Medium"> Medium
+   <input type="radio" name="pizzasize" value="Large"> Large
+  <input type="radio" name="pizzasize" value="Extra Large">Extra Large
+  <br><br>
+  <!--checkbozez-->
+  Toppings
+   <input type="checkbox" name="Onions" value="Onions"> Onions
+   <input type="checkbox" name="Pepperoni" value="Pepperoni"> Pepperoni
+   <input type="checkbox" name="Bacon" value="Bacon"> Bacon
+   <input type="checkbox" name="Sausage" value="Sausage"> Sausage
+ <br><br>
+ <!--Drop down menu-->
+ State <select name="state">
+  <option value=" ">
+  <option value="NY">New York
+  <option value="MA">Massachusetts
+  <option value="VT">Vermont
+  </select>
+  <br><br>
+  <!--numbers-->
+  Number 1<input type="textbox" name="number1"><br>
+  Number 2<input type="textbox" name="number2"><br>
+  Total <input type="textbox" name="total">
+  <br><br>
+  <input type="button" value="Order" onclick="orderUp()">
+  </div>
+</form>
+</body
+</html>

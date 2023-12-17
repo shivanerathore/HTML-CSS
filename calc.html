@@ -1,0 +1,40 @@
+<!--Shivane Rathore-->
+<html>
+    <head>
+        <title>Calculator</title>
+
+        <!--JavaScript for Calculator-->
+        <script>
+            function calculateTotal() {
+                var num1;
+                var num2;
+                var total;
+                num1 = document.form1.Number1.value;
+                num2 = document.form1.Number2.value;
+                total = eval(num1) + eval(num2);
+                document.form1.Sum.value = total;
+            }
+        </script>
+    </head>
+
+    <body bgcolor="orange" align="center">
+        <h1><strong>Shivane Rathore's Calculator</strong></h1>
+
+        <form name="form1">
+        <table align="center">
+            <tr>
+                <td>Number 1</td>
+                <td><input type="textbox" name="Number1"></td>
+            </tr>
+            <tr>
+                <td>Number 2</td>
+                <td><input type="textbox" name="Number2"></td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td><input type="textbox" name="Sum"></td>
+            </tr>
+        </table>
+        <input type="button" value="Calculate" onclick="calculateTotal()">
+    </body>
+</html>
